@@ -245,7 +245,7 @@ else:
 i=1
 while i <= 10:
     print(i)
-    i++
+    i += 1
 
 #2. 반복문 : for
 #반복문 for는 C#, Java 에서의 foreach 와 비슷한 것으로, 컬렉션으로부터 하나씩 요소(element)를 가져와, 루프 내의 문장들을 실행하는 것이다. 리스트, Tuple, 문자열 등의 컬렉션은 "for 요소변수 in 컬렉션" 형식에서 in 뒤에 놓게 된다.
