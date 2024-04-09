@@ -133,6 +133,7 @@ scores = {"철수": 90, "민수": 85, "영희": 80}
 v = scores["민수"]   # 특정 요소 읽기
 scores["민수"] = 88  # 쓰기
 print(t)
+
 #파이썬의 Dictionary는 생성하기 위해 위의 예제와 같이 {...} 리터럴(Literal)을 사용할 수도 있지만, 또한 dict 클래스의 dict() 생성자를 사용할 수도 있다. dict() 생성자는 (아래 첫번째 예처럼) Key-Value 쌍을 갖는 Tuple 리스트를 받아들이거나 (두번째 예처럼) dict(key=value, key=value, ...) 식의 키-값을 직접 파라미터로 지정하는 방식을 사용할 수 있다.
 
 # 1. Tuple List로부터 dict 생성
@@ -154,6 +155,7 @@ scores["민수"] = 88   # 수정
 scores["길동"] = 95   # 추가
 del scores["영희"]
 print(scores)
+
 # 출력 {'철수': 90, '길동': 95, '민수': 88}
 #Dictionary에 있는 값들을 모두 출력하기 위해서는 다음과 같이 루프를 사용할 수 있다. 아래 예제에서 for 루프는 scores 맵으로부터 키를 하나씩 리턴하게 된다. 이때 키는 랜덤하게 리턴되는데, 이는 해시테이블의 속성이다. 각 키에 따른 값을 구하기 위해서는 scores[key]와 같이 사용한다.
 
@@ -177,6 +179,7 @@ for k in keys:
 values = scores.values()
 for v in values:
     print(v)
+
 #dict의 items()는 Dictonary의 키-값 쌍 Tuple 들로 구성된 dict_items 객체를 리턴한다. 참고로 dict_items 객체를 리스트로 변환하기 위해서는 list()를 사용할 수 있다. 이는 dict_keys, dict_values 객체에도 공히 적용된다.
 
 scores = {"철수": 90, "민수": 85, "영희": 80}
@@ -187,6 +190,7 @@ print(items)
 
 # dict_items를 리스트로 변환할 때
 itemsList = list(items)
+
 #dict.get() 메서드는 특정 키에 대한 값을 리턴하는데, 이는 Dictionary[키]를 사용하는 것과 비슷하다. 단, Dictionary[키]를 사용하면 키가 없을 때 에러(KeyError)를 리턴하는 반면, get()은 키가 Dictionary에 없을 경우 None을 리턴하므로 더 유용할 수 있다. 물론 get()을 사용하는 대신 해당 키가 Dictionary에 존재하는지 체크하고 Dictionary[키]를 사용하는 방법도 있다. 키가 Dictionary에 존재하는지를 체크하지 위해서는 멤버쉽연산자 in 을 사용하면 된다.
 
 scores = {"철수": 90, "민수": 85, "영희": 80}
@@ -200,6 +204,7 @@ if "길동" in scores:
 
 scores.clear()  # 모두 삭제
 print(scores)
+
 #dict.update() 메서드는 Dictionary 안의 여러 데이타를 한꺼번에 갱신하는데 유용한 메서드이다. 아래 예제에서 처럼, update() 안에 Dictionary 형태로 여러 데이타의 값을 변경하면, 해당 데이타들이 update() 메서드에 의해 한꺼번에 수정된다.
 
 persons = [('김기수', 30), ('홍대길', 35), ('강찬수', 25)]
@@ -298,6 +303,7 @@ m = [1,2,3]  # m은 리스트 (mutable)
 
 f(k, m)      # 함수 호출
 print(k, m)  # 호출자 값 체크
+
 # 출력: 10 [1, 2, 3, 0]
 #위의 예제에서 함수 f()는 하나의 정수(i)와 하나의 리스트(mylist)를 입력받아, 함수 내에서 그 값들을 변경한다. 정수는 Immutable 타입이므로 함수 내에서 변경된 것이 호출자에 반영되지 않으며, 리스트는 Mutable 타입이므로 추가된 요소가 호출자에서도 반영된다.
 
@@ -358,12 +364,14 @@ print(count, sum)
 
 import math
 n = math.factorial(5)
+
 #하나의 모듈 안에는 여러 함수들이 존재할 수 있는데, 이 중 하나의 함수만을 불러 사용하기 위해서는 아래와 같이 "from 모듈명 import 함수명"이라는 표현을 사용할 수 있다. 이렇게 from...import... 방식으로 import 된 함수는 호출시 "모듈명.함수명"이 아니라 직접 "함수명"만을 사용한다.
 
 # factorial 함수만 import
 from math import factorial  
 
 n = factorial(5) / factorial(3)
+
 #하나의 모듈 안에는 있는 여러 함수를 사용하기 위해 from... import (함수1, 함수2) 와 같이 import 뒤에 사용할 함수를 나열할 수도 있다. 또한, 모든 함수를 불러 사용하기 위해서는 "from 모듈명 import *" 와 같이 asterisk(*)를 사용할 수 있다. 이렇게 from...import... 방식으로 import 된 함수는 호출시 모듈명 없이 직접 함수명을 사용한다.
 
 # 여러 함수를 import
@@ -373,6 +381,7 @@ n = factorial(3) + acos(1)
 # 모든 함수를 import
 from math import *
 n = sqrt(5) + fabs(-12.5)
+
 #함수의 이름이 길거나 어떤 필요에 의해 함수의 이름에 Alias를 주고 싶은 경우가 있는데, 이 때는 아래와 같이 "함수명 as Alias" 와 같은 표현을 사용할 수 있다.
 
 # factorial() 함수를 f()로 사용 가능
@@ -401,6 +410,7 @@ def add(a, b):
 
 def substract(a, b):
     return a - b
+
 #모듈 mylib.py가 있는 디렉토리에서 그 모듈을 import 한 후, mylib의 함수들을 사용한다.
 
 # exec.py
@@ -408,6 +418,7 @@ from mylib import *
 
 i = add(10,20)
 i = substract(20,5)
+
 #파이썬 모듈 .py 파일은 import 하여 사용할 수 있을 뿐만 아니라, 해당 모듈 파일 안에 있는 스크립트 전체를 바로 실행할 수도 있다. 파이썬에서 하나의 모듈을 import 하여 사용할 때와 스크립트 전체를 실행할 때를 동시에 지원하기 위하여 흔히 관행적으로 모듈 안에서 __name__ 을 체크하곤 한다. 파이썬에서 모듈을 import해서 사용할 경우 그 모듈 안의 __name__ 은 해당 모듈의 이름이 되며, 모듈을 스크립트로 실행할 경우 그 모듈 안의 __name__ 은 "__main__" 이 된다. 예를 들어, run.py이라는 모듈을 import 하여 사용할 경우 __name__ 은 run.py가 되며, "python3.5 run.py"와 같이 인터프리터로 스크립트를 바로 실행할 때 __name__ 은 __main__ 이 된다.
 
 # run.py
@@ -418,6 +429,7 @@ def openurl(url):
 
 if __name__ == '__main__':
     openurl(sys.argv[1])
+
 #위와 같은 run.py 모듈을 아래와 같이 스크립트로 실행할 때 "if __name__ ..." 조건문은 참이 되어 openurl(sys.argv[1]) 가 실행된다. 여기서 참고로 sys.argv는 Command Line 아규먼트들을 갖는 리스트로서 아래 예제에서 argv[0]은 run.py, argv[1]은 google.com이 된다.
 
 #$ python3.5 run.py google.com
@@ -505,6 +517,7 @@ class Rectangle:
     def calcArea(self):
         area = self.width * self.height
         return area
+
 #클래스 변수
 #클래스 정의에서 메서드 밖에 존재하는 변수를 클래스 변수(class variable)라 하는데, 이는 해당 클래스를 사용하는 모두에게 공용으로 사용되는 변수이다. 클래스 변수는 클래스 내외부에서 "클래스명.변수명" 으로 엑세스 할 수 있다. 위의 예제에서 count는 클래스변수로서 "Rectangle.count"와 같이 엑세스할 수 있다.
 
@@ -524,6 +537,7 @@ def __init__(self, width, height):
 # private 메서드
 def __internalRun(self):
     pass
+
 #Initializer (초기자)
 #클래스로부터 새 객체를 생성할 때마다 실행되는 특별한 메서드로 __init__() 이라는 메서드가 있는데, 이를 흔히 클래스 Initializer 라 부른다 (주: 파이썬에서 두개의 밑줄 (__) 시작하고 두개의 밑줄로 끝나는 레이블은 보통 특별한 의미를 갖는다). Initializer는 클래스로부터 객체를 만들 때, 인스턴스 변수를 초기화하거나 객체의 초기상태를 만들기 위한 문장들을 실행하는 곳이다. 위의 __init__() 예제를 보면, width와 height라는 입력 파라미터들을 각각 self.width와 self.height라는 인스턴스변수에 할당하여 객체 내에서 계속 사용할 수 있도록 준비하고 있다.
 #(주: Python의 Initializer는 C#/C++/Java 등에서 일컫는 생성자(Constructor)와 약간 다르다. Python에서 클래스 생성자(Constructor)는 실제 런타임 엔진 내부에서 실행되는데, 이 생성자(Constructor) 실행 도중 클래스 안에 Initializer가 있는지 체크하여 만약 있으면 Initializer를 호출하여 객체의 변수 등을 초기화한다.).
@@ -568,6 +582,7 @@ print(square)   # True
 rect1 = Rectangle(5, 5)
 rect2 = Rectangle(2, 5)
 rect1.printCount()  # 2
+
 #그 밖의 특별한 메서드들
 #파이썬에는 Initializer 이외에도 객체가 소멸될 때 (Garbage Collection 될 때) 실행되는 소멸자(__del__) 메서드, 두 개의 객체를 ( + 기호로) 더하는 __add__ 메서드, 두 개의 객체를 ( - 기호로) 빼는 __sub__ 메서드, 두 개의 객체를 비교하는 __cmp__ 메서드, 문자열로 객체를 표현할 때 사용하는 __str__ 메서드 등 많은 특별한 용도의 메서드들이 있다. 아래 예제는 이 중 __add__() 메서드에 대한 예이다.
 
@@ -597,8 +612,9 @@ r.width = 10
 print("width = ", r.width)
 
 # 클래스 변수 엑세스
-#print(Rectangle.count)
-#print(r.count)
+print(Rectangle.count)
+print(r.count)
+
 #클래스로부터 생성된 객체(Object)로부터 클래스 멤버들을 호출하거나 엑세스할 수 있다. 인스턴스 메서드는 "객체변수.메서드명()"과 같이 호출할 수 있는데, 위의 예제에선 r.calcArea() 이 메서드 호출에 해당된다. 인스턴스 변수는 "객체변수.인스턴스변수" 으로 표현되며, 값을 읽거나 변경하는 일이 가능하다. 위의 예제 r.width = 10 은 인스턴스변수 width 에 새 값을 할당하는 예이다.
 
 #파이썬에서 특히 클래스 변수를 엑세스할 때, "클래스명.클래스변수명" 혹은 "객체명.클래스변수명"을 둘 다 허용하기 때문에 약간의 혼란을 초래할 수 있다. 예를 들어, 위의 예제에서 Rectangle.count 혹은 r.count은 모두 클래스 변수 count를 엑세스하는 경우로서 이 케이스에는 동일한 값을 출력한다.
@@ -638,6 +654,7 @@ dog = Dog("doggy") # 부모클래스의 생성자
 n = dog.name # 부모클래스의 인스턴스변수
 dog.move()   # 부모클래스의 메서드
 dog.speak()  # 파생클래스의 멤버
+
 #파이썬은 객체지향 프로그래밍의 다형성(Polymorphism)을 또한 지원하고 있다. 아래 예제는 animals 라는 리스트에 Dog 객체와 Duck 객체를 넣고 이들의 speak() 메서드를 호출한 예이다. 코드 실행 결과를 보면 객체의 타입에 따라 서로 다른 speak() 메서드가 호출됨을 알 수 있다.
 
 animals = [Dog('doggy'), Duck('duck')]
@@ -657,6 +674,7 @@ for a in animals:
 #  예외처리
 #finally:
 #  마지막에 항상 수행
+
 #위의 except 문은 except 뒤에 아무것도 쓰지 않았는데, 이는 어떤 에러이든 발생하면 해당 except 블럭을 수행하라는 의미이다. except 뒤에 "에러타입"을 적거나 "에러타입 as 에러변수"를 적을 수가 있는데, 이는 특정한 타입의 에러가 발생했을 때만 해당 except 블럭을 실행하라는 뜻이다. 에러변수까지 지정했으면, 해당 에러변수를 excep 블럭 안에서 사용할 수 있다. 아래 예제를 보면, except가 2개 있는데, 첫번째는 IndexError가 발생했을 때만 그 블럭을 실행하며, 두번째는 일반적인 모든 Exception 이 발생했을 때 해당 블럭을 실행하라는 의미이다. 즉, 먼저 IndexError 인지 검사하고, 아니면 다음 except를 계속 순차적으로 체크하게 된다. except가 여러 개인 경우는 범위가 좁은 특별한 에러타입을 앞에 쓰고 보다 일반적인 에러타입을 뒤에 쓰게 된다.
 
 def calc(values):
@@ -676,6 +694,7 @@ def calc(values):
 # 테스트
 calc([1, 2, 3, 6]) # 출력: 에러없음 6
 calc([1, 2])       # 출력: 인덱스에러 None
+
 #또한, 위의 예제에서 else문 있는데, 이는 에러가 발생하지 않을 때 실행하게 되는 블럭이다. 그리고 finally 블럭은 항상 마지막에 실행되는 코드 블럭이다.
 
 #만약 복수 Exception들이 동일한 except 블럭을 갖는다면, 아래와 같이 이들 Expception들을 하나의 except 문에 묶어서 쓸 수도 있다.
@@ -716,6 +735,7 @@ try:
       fp.close()
 except IOError:
    print('파일에러')
+
 #참고로 다음은 with 문을 써서 해당 블럭이 끝나면 자동으로 파일을 닫는 코드의 예이다. Python의 with 문은 C#의 using 문과 비슷한 것으로 with 블럭이 끝날 때 자동으로 리소스를 해제하는 역활을 하는데, 특히 주목할 점은 with 블럭 내에서 어떤 Exception이 발생하더라도 반드시 리소스를 해제한다는 점이다.
 
 with open('test.txt', 'r') as fp:
@@ -788,6 +808,7 @@ for n in [1,2,3,4,5]:
 # 문자열 Iterable
 for c in "Hello World":
       print(c)
+
 #내장 함수 iter()는 "iter(Iterable객체)" 와 같이 사용하여 그 Iterable 객체의 iterator를 리턴한다. Iterable 객체에서 실제 Iteration을 실행하는 것은 iterator로서, iterator는 next 메서드를 사용하여 다음 요소(element)를 가져온다. 만약 더이상 next 요소가 없으면 StopIteration Exception을 발생시킨다.
 
 #Iterator의 next 메서드로서 Python 2에서는 "iterator객체.next()" 를 사용하고, Python 3에서는 "iterator객체.__next__()" 메서드를 사용한다. 또한, 버전에 관계없이 사용할 수 있는 방식으로 내장 함수 "next(iterator객체)" 를 사용할 수 있다. 아래는 한 리스트에 대해 list iterator를 구한 후, next() 함수를 계속 호출해 본 예이다.
@@ -845,6 +866,7 @@ n = next(g); print(n)  # 3
 # for 루프 사용 가능
 for x in gen():
     print(x)
+
 #위의 예에서 g = gen() 문은 Generator 함수를 변수 g 에 할당한 것인데, 이때 g는 generator 라는 클래스의 객체로서 next() 내장함수를 사용하여 Generator의 다음 값을 계속 가져올 수 있다. Generator는 물론 예제의 마지막 부분과 같이 for 루프에서 사용될 수 있다.
 
 #리스트나 Set과 같은 컬렉션에 대한 iterator는 해당 컬렉션이 이미 모든 값을 가지고 있는 경우이나, Generator는 모든 데이타를 갖지 않은 상태에서 yield에 의해 하나씩만 데이타를 만들어 가져온다는 차이점이 있다. 이러한 Generator는 데이타가 무제한이어서 모든 데이타를 리턴할 수 없는 경우나, 데이타가 대량이어서 일부씩 처리하는 것이 필요한 경우, 혹은 모든 데이타를 미리 계산하면 속도가 느려서 그때 그때 On Demand로 처리하는 것이 좋은 경우 등에 종종 사용된다.
