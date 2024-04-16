@@ -95,18 +95,22 @@ def download_wallpaper(idx=0, use_wallpaper=True):
         if os.path.isfile(pic_path):
             print('Image of', date.strftime('%d-%m-%Y'), 'already downloaded.')
             if use_wallpaper:
-                set_wallpaper(pic_path)
+                pass
+                # set_wallpaper(pic_path)
             return
         print('Downloading: ', date.strftime('%d-%m-%Y'), 'index #', idx)
 
         # Download and Save the Picture
         # Get a higher resolution by replacing the file name
+        print(f"url: {url}")
+        print(f"pic_path: {pic_path}")
         urlretrieve(url.replace('_1366x768', '_1920x1200'), pic_path)
         # Set Wallpaper if wanted by user
         if use_wallpaper:
-            set_wallpaper(pic_path)
+            pass
+            # set_wallpaper(pic_path)
 
 
 if __name__ == "__main__":
-    # download_wallpaper()
-    download_old_wallpapers(minus_days=False)
+    download_wallpaper()
+    # download_old_wallpapers(minus_days=False)
