@@ -1,6 +1,7 @@
 """
 Python 기본 데이타 타입
 """
+
 int(3.5)  # 3
 2e3  # 2000.0
 float("1.6")  # 1.6
@@ -12,27 +13,27 @@ bool("False")  # True
 a = None  # a는 None
 a is None  # a가 None 이므로 True
 
-'''
+"""
 복소수
-'''
+"""
 v = 2 + 3j
 v.real  # 2
 v.imag  # 3
 
 
-'''
+"""
 문자열
-'''
-s = '가나다'
+"""
+s = "가나다"
 s = "가나다"
 
-s = '''아리랑
+s = """아리랑
 아리랑
 아라리요
-'''
+"""
 print(s)
 
-s = '아리랑\n아리랑\n아라리요'
+s = "아리랑\n아리랑\n아라리요"
 print(s)
 
 s = "ABC"
@@ -40,23 +41,23 @@ type(s)  # class 'str'
 v = s[1]  # B
 type(s[1])  # class 'str'
 
-path = r'C:\Temp\test.csv'
+path = r"C:\Temp\test.csv"
 print(path)
 
-s = ','.join(['가나', '다라', '마바'])
+s = ",".join(["가나", "다라", "마바"])
 print(s)
 # 출력: 가나,다라,마바
 
-s = ''.join(['가나', '다라', '마바'])
+s = "".join(["가나", "다라", "마바"])
 print(s)
 # 출력 : 가나다라마바
 
 
-items = '가나,다라,마바'.split(',')
+items = "가나,다라,마바".split(",")
 print(items)
 # 출력 : ['가나', '다라', '마바']
 
-departure, _, arrival = "Seattle-Seoul".partition('-')
+departure, _, arrival = "Seattle-Seoul".partition("-")
 print(departure)
 # 출력 : Seattle
 
@@ -74,16 +75,17 @@ s = "width: {x[0]}, height: {x[1]}".format(x=area)
 print(s)  # 출력: width: 10, height: 20
 
 
-'''
+"""
 조건문
-'''
+"""
 x = 1
 if x < 10:
     print(x)
     print("한자리수")
 
 # 한 라인에서 표현된 if 문
-if x < 100: print(x)
+if x < 100:
+    print(x)
 
 x = 10
 if x < 10:
@@ -100,9 +102,9 @@ else:
     print(n)
 
 
-'''
+"""
 반복문
-'''
+"""
 i = 1
 while i <= 10:
     print(i)
@@ -137,9 +139,9 @@ for x in numbers:
 # 출력: 각 라인에 2 4 6 8 10 출력
 
 
-'''
+"""
 List
-'''
+"""
 a = []  # 빈 리스트
 a = ["AB", 10, False]
 
@@ -170,23 +172,23 @@ d = a * 3
 print(d)  # [1, 2, 1, 2, 1, 2]
 
 mylist = "This is a book That is a pencil".split()
-i = mylist.index('book')  # i = 3
-n = mylist.count('is')  # n = 2
+i = mylist.index("book")  # i = 3
+n = mylist.count("is")  # n = 2
 print(i, n)
 
-list = [n ** 2 for n in range(10) if n % 3 == 0]
+list = [n**2 for n in range(10) if n % 3 == 0]
 
 print(list)
 # 출력: [0, 9, 36, 81]
 
 
-'''
+"""
 Tuple
-'''
+"""
 t = ("AB", 10, False)
 print(t)
 
-t1 = (123)
+t1 = 123
 print(t1)  # int 타입
 
 t2 = (123,)
@@ -221,16 +223,16 @@ print(lastname, ",", firstname)
 # 출력: Kim, John
 
 
-'''
+"""
 Dictionary
-'''
+"""
 scores = {"철수": 90, "민수": 85, "영희": 80}
 v = scores["민수"]  # 특정 요소 읽기
 scores["민수"] = 88  # 쓰기
 print(t)
 
 # 1. Tuple List로부터 dict 생성
-persons = [('김기수', 30), ('홍대길', 35), ('강찬수', 25)]
+persons = [("김기수", 30), ("홍대길", 35), ("강찬수", 25)]
 mydict = dict(persons)
 
 age = mydict["홍대길"]
@@ -238,7 +240,7 @@ print(age)  # 35
 
 # 2. Key=Value 파라미터로부터 dict 생성
 scores = dict(a=80, b=90, c=85)
-print(scores['b'])  # 90
+print(scores["b"])  # 90
 
 scores = {"철수": 90, "민수": 85, "영희": 80}
 scores["민수"] = 88  # 수정
@@ -273,12 +275,12 @@ print(items)
 # 출력: dict_items([('민수', 85), ('영희', 80), ('철수', 90)])
 
 # dict_items를 리스트로 변환할 때
-#itemsList = list(items)
+# itemsList = list(items)
 
 scores = {"철수": 90, "민수": 85, "영희": 80}
 v = scores.get("민수")  # 85
 v = scores.get("길동")  # None
-#v = scores["길동"]  # 에러 발생
+# v = scores["길동"]  # 에러 발생
 
 # 멤버쉽연산자 in 사용
 if "길동" in scores:
@@ -287,15 +289,15 @@ if "길동" in scores:
 scores.clear()  # 모두 삭제
 print(scores)
 
-persons = [('김기수', 30), ('홍대길', 35), ('강찬수', 25)]
+persons = [("김기수", 30), ("홍대길", 35), ("강찬수", 25)]
 mydict = dict(persons)
 
-mydict.update({'홍대길': 33, '강찬수': 26})
+mydict.update({"홍대길": 33, "강찬수": 26})
 
 
-'''
+"""
 Set
-'''
+"""
 # set 정의
 myset = {1, 1, 3, 5, 5}
 print(myset)  # 출력: {1, 3, 5}
@@ -342,9 +344,9 @@ d = a - b
 print(d)
 
 
-'''
+"""
 함수
-'''
+"""
 
 
 def sum(a, b):
@@ -370,6 +372,7 @@ print(k, m)  # 호출자 값 체크
 
 
 # 출력: 10 [1, 2, 3, 0]
+
 
 def calc(i, j, factor=1):
     return i * j * factor
@@ -412,9 +415,9 @@ count, sum = calc(1, 5, 2, 6)  # (count, tot) 튜플을 리턴
 print(count, sum)
 
 
-'''
+"""
 모듈
-'''
+"""
 import math
 
 n = math.factorial(5)
@@ -427,7 +430,7 @@ n = factorial(5) / factorial(3)
 print(n)
 
 # 여러 함수를 import
-from math import (factorial, acos)
+from math import factorial, acos
 
 n = factorial(3) + acos(1)
 print(n)
